@@ -1,0 +1,16 @@
+{
+  "annotationSupport": false,
+  "mapping": [
+    {
+      "url": "/index",
+      "requestType": [
+        "get"
+      ],
+      "method": "index",
+      "objectClass": "com.hebaibai.demo.web.IndexController",
+      "paramTypes": [
+        "java.lang.String"
+      ]
+    }
+  ]
+}
