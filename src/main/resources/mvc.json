@@ -1,16 +1,18 @@
 {
-  "annotationSupport": false,
-  "mapping": [
-    {
-      "url": "/index",
-      "requestType": [
-        "get"
-      ],
-      "method": "index",
-      "objectClass": "com.hebaibai.demo.web.IndexController",
-      "paramTypes": [
-        "java.lang.String"
-      ]
-    }
-  ]
+  "annotationSupport": true,
+  "annotationPackage": "com.hebaibai.demo.web",
+//  "mapping": [
+//    {
+//      "url": "/index",
+//      "requestType": [
+//        "get"
+//      ],
+//      "method": "index",
+//      "objectClass": "com.hebaibai.demo.web.IndexController",
+//      "paramTypes": [
+//        "java.lang.String",
+//        "int"
+//      ]
+//    }
+//  ]
 }
