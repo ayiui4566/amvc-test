@@ -7,7 +7,7 @@
 
     <servlet>
         <servlet-name>mvc</servlet-name>
-        <servlet-class>com.hebaibai.amvc.MvcServlet</servlet-class>
+        <servlet-class>com.hebaibai.demo.MyMvc</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>mvc</servlet-name>
