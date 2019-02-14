@@ -1,8 +1,10 @@
 package com.hebaibai.demo.web;
 
+import com.hebaibai.amvc.RequestType;
 import com.hebaibai.amvc.annotation.Request;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,25 +14,49 @@ import java.util.Map;
 @Request
 public class IndexController {
 
+    @Named("url")
     @Inject
-    public Service service;
+    private String url;
+
+    @Named("name")
+    @Inject
+    private String name;
+
+    @Named("web")
+    @Inject
+    private String web;
 
     @Inject
-    public Dao dao;
+    private Dao dao;
+
+    @Inject
+    private Service service;
 
     /**
-     * @param name
      * @return
      */
-    @Request("/index")
-    public Map<String, Object> index(String name) {
+    @Request(value = "/config", type = RequestType.GET)
+    public Map<String, Object> index() {
         Map<String, Object> map = new HashMap<>();
+        map.put("url", url);
         map.put("name", name);
-        map.put("IndexController.hashCode", hashCode());
-        map.put("server.hashCode", service.hashCode());
-        map.put("server.dao.hashCode", service.dao.hashCode());
-        map.put("dao.hashCode", dao.hashCode());
+        map.put("web", web);
         return map;
+    }
+
+    @Request(value = "/dao", type = RequestType.GET)
+    public String daoName() {
+        return dao.getDaoName()+"=="+dao.hashCode();
+    }
+
+    @Request(value = "/service", type = RequestType.GET)
+    public String serviceName() {
+        return service.getServiceName() + "==" + service.hashCode();
+    }
+
+    @Request(value = "/service.dao", type = RequestType.GET)
+    public String serviceDao() {
+        return service.getServiceName() + "==" + service.getDao().hashCode();
     }
 
 }

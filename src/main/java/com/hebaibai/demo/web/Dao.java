@@ -1,15 +1,12 @@
 package com.hebaibai.demo.web;
 
-import javax.inject.Singleton;
+import lombok.Getter;
+import lombok.Setter;
 
-@Singleton
+@Getter
+@Setter
 public class Dao {
 
-    public int install() {
-        return 1;
-    }
+    private String daoName;
 
-    public int del() {
-        return 1;
-    }
 }
