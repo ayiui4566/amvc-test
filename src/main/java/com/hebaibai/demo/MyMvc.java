@@ -18,5 +18,4 @@ public class MyMvc extends MvcServlet {
         Injector injector = Guice.createInjector(new IocModule());
         application.setObjectFactory(aClass -> injector.getInstance(aClass));
     }
-
 }

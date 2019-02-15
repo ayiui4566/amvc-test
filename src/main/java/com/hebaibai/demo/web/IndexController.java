@@ -3,60 +3,23 @@ package com.hebaibai.demo.web;
 import com.hebaibai.amvc.RequestType;
 import com.hebaibai.amvc.annotation.Request;
 
-import javax.inject.Inject;
-import javax.inject.Named;
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * @author hjx
  */
-@Request
+@Request("index")
 public class IndexController {
 
-    @Named("url")
-    @Inject
-    private String url;
-
-    @Named("name")
-    @Inject
-    private String name;
-
-    @Named("web")
-    @Inject
-    private String web;
-
-    @Inject
-    private Dao dao;
-
-    @Inject
-    private Service service;
-
-    /**
-     * @return
-     */
-    @Request(value = "/config", type = RequestType.GET)
-    public Map<String, Object> index() {
-        Map<String, Object> map = new HashMap<>();
-        map.put("url", url);
-        map.put("name", name);
-        map.put("web", web);
-        return map;
+    @Request(value = "test", type = RequestType.GET)
+    public String testGet() {
+        return "success";
     }
 
-    @Request(value = "/dao", type = RequestType.GET)
-    public String daoName() {
-        return dao.getDaoName()+"=="+dao.hashCode();
-    }
-
-    @Request(value = "/service", type = RequestType.GET)
-    public String serviceName() {
-        return service.getServiceName() + "==" + service.hashCode();
-    }
-
-    @Request(value = "/service.dao", type = RequestType.GET)
-    public String serviceDao() {
-        return service.getServiceName() + "==" + service.getDao().hashCode();
+    @Request(value = "user/{name}/{age}", type = RequestType.POST)
+    public String user(String name, int age, String body) {
+        System.out.println(name);
+        System.out.println(age);
+        System.out.println(body);
+        return "success";
     }
 
 }
